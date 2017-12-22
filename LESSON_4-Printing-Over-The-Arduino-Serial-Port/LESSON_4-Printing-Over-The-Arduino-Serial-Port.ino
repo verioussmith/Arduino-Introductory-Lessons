@@ -1,27 +1,35 @@
 int redLEDPin=9;   // Declaring red Led Pin as an int and set to 9
 int yellowLEDPin=10;   // Declaring yellow Led Pin as an int and set it to 10
-int redOnTime=100;    // This is the red on time
-int redOffTime=900;   // This is the red off time
-int yellowOnTime=10; // This is the yellow on time
-int yellowOffTime=500;  // This is the yellow off time
+int redOnTime=250;    // This is the red on time
+int redOffTime=250;   // This is the red off time
+int yellowOnTime=250; // This is the yellow on time
+int yellowOffTime=250;  // This is the yellow off time
 int numRedBlink=5; // Number of times to blink the red led
-int numYellowBlink=10;
+int numYellowBlink=5;
 
 void setup() {
 
+  Serial.begin(115200);
   pinMode(redLEDPin, OUTPUT);
   pinMode(yellowLEDPin, OUTPUT);
+  
   
 }
 
 void loop() {
 
+Serial.println("The Red LED is blinking.");
+
   for (int j=1; j<=numRedBlink; j=j+1) {
+    Serial.print("   You are on blink #: ");
+    Serial.println(j);
     digitalWrite(redLEDPin, HIGH);  // Turen the red LED on
     delay(redOnTime);   // Wait
     digitalWrite(redLEDPin, LOW); // Turn the red LED off
     delay(redOffTime); // Wait
   }
+
+Serial.println(" ");
 
   for (int j=1; j<=numYellowBlink; j=j+1) {
     digitalWrite(yellowLEDPin, HIGH);  // Turen the yellow LED on
