@@ -42,13 +42,15 @@ Serial.println(redMessage);
 Serial.println(" ");
 
 Serial.println(yellowMessage);
-  for (int j=1; j<=numYellowBlink; j=j+1) {
+  int k=1;
+  while (k<=numYellowBlink) {
     Serial.print("   You are on blink #: ");
-    Serial.println(j);
+    Serial.println(k);
     digitalWrite(yellowLEDPin, HIGH);  // Turen the yellow LED on
     delay(yellowOnTime);   // Wait
     digitalWrite(yellowLEDPin, LOW); // Turn the yellow LED off
     delay(yellowOffTime); // Wait
+    k=k+1;
   }
   
 }
